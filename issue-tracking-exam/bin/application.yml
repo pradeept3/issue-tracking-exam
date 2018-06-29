@@ -1,0 +1,54 @@
+server:
+  port: 8080
+  #contextPath: /v1
+
+logging:
+  level: 
+   org.springframework.web: debug
+   org.springframework.controller: debug
+   org.hibernate: debug
+      
+ # spring:
+   # h2:
+    # console:
+     # enabled: true
+     # path: /h2
+
+spring:
+  resources:
+    static-locations: /resources/static/css/
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /**
+           
+ # mvc:
+  # view:
+   # prefix: /WEB-INF/views/issue/
+    
+    #suffix: .jsp
+  thymeleaf:
+    cache: false
+    enabled: true  
+
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+
+
+
+      
+  datasource:
+   # url: jdbc:h2:file:~/simple-ticket-db
+   # username: sa
+   # password:
+   # driver-class-name: org.h2.Driver
+    url: jdbc:mysql://localhost:3306/issue_tracker
+    username: root
+    password: password
+    driver-class-name: com.mysql.jdbc.Driver
+    
+spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
